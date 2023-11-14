@@ -1,0 +1,22 @@
+.btn{
+    font-size: 17px;
+    text-align: center;
+    color: white;
+    background-color: var(--btn-main);
+    width: 55%;
+    margin: 10px 0;
+    padding: 16px 0;
+    border: none;
+    border-radius: 5px;
+}
+.google_btn{
+    background-color: rgb(246, 74, 55);
+}
+.btn.google_btn:hover{
+    cursor: pointer;
+    background-color: rgb(215, 60, 43);
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: #257e50;
+}
