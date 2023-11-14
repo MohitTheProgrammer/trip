@@ -1,22 +1,21 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
-
+import NavigationBar from "./component/NavigationBar";
 import "./App.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  { 
-    path: "sign-up", 
-    element: <SignupPage /> 
-  },
-]);
-
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <NavigationBar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<SignupPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;

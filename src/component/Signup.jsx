@@ -55,7 +55,7 @@ const Signup = () => {
       <form onSubmit={signupWithEmail} className={"signup_form"}>
         <div className={"input_control"}>
           <input
-            type="text"
+            type="email"
             required
             ref={emailRef}
             placeholder="Email"
@@ -65,7 +65,7 @@ const Signup = () => {
             <p style={{ color: "red" }}>Please enter valid email</p>
           )}
           <input
-            type="text"
+            type="password"
             required
             ref={passwordRef}
             placeholder="Password"
