@@ -1,59 +1,69 @@
 .container {
-    width: 100%;
-    padding: 35px 24px;
-    font-size: 20px;
-    text-align: center;
-  }
-  .container h1 {
-    font-size: 50px;
-  }
-  .signup_form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-  }
-  .signup_input {
-    padding: 20px 5px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid black;
-    width: 90%;
-    font-size: 20px;
-  }
-  .input_control {
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 40px;
-  }
-  .login_link_line {
-    text-align: center;
-  }
-  .link {
-    font-weight: bolder;
-    text-decoration: none;
-    color: black;
-    text-transform: capitalize;
-  }
-  .signup_input::placeholder {
-    color: rgba(21, 21, 21, 0.716);
-  }
-  .hr {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .line {
-    width: 50%;
-    height: 1px;
-    background-color: rgba(117, 114, 114, 0.519);
-  }
-  .or {
-    color: rgba(55, 51, 51, 0.786);
-  }
-  
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  font-family: var(--signup-font);
+  padding: 55px 24px;
+}
+
+.card-lg {
+  width: 30%;
+  height: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.container h1 {
+  font-size: 50px;
+}
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+.signup_input {
+  padding: 20px 5px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  width: 90%;
+  font-size: 20px;
+}
+.input_control {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 40px;
+}
+.login_link_line {
+  text-align: center;
+}
+.link {
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+}
+.signup_input::placeholder {
+  color: rgba(21, 21, 21, 0.716);
+}
+.hr {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.line {
+  width: 50%;
+  height: 1px;
+  background-color: rgba(117, 114, 114, 0.519);
+}
+.or {
+  color: rgba(55, 51, 51, 0.786);
+}
+
+

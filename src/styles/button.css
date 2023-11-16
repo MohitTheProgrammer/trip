@@ -10,13 +10,13 @@
     border-radius: 5px;
 }
 .google_btn{
-    background-color: rgb(246, 74, 55);
+    background-color: var(--google-btn);
 }
 .btn.google_btn:hover{
     cursor: pointer;
-    background-color: rgb(215, 60, 43);
+    background-color: var(--google-btn-hover);
 }
 .btn:hover{
     cursor: pointer;
-    background-color: #257e50;
+    background-color: var(--btn-main-hover);
 }

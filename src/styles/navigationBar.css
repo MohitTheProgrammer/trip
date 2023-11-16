@@ -33,7 +33,7 @@ nav {
   color: white;
   text-decoration: none;
   border-radius: 4px;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 .nav-items a:hover {
   color: var(--btn-main);
@@ -47,4 +47,8 @@ nav {
   display: grid;
   place-items: center;
   color: white;
+}
+.nav-logo:hover {
+  color: var(--btn-main);
+  cursor: pointer;
 }
