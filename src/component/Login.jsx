@@ -1,81 +1,52 @@
-import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  getAuth,
-  signInWithPopup,
-} from "firebase/auth";
-import { useRef, useState } from "react";
-import { app } from "../firbase/config";
-import "../styles/signup.css";
 import Button from "./Button";
-import Modal from "./Modal";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
+import { app } from "../firbase/config";
+import Modal from "./Modal";
 
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
 let errorMessage = "";
 let errorTitle = "";
 
-const Signup = () => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
+const Login = () => {
   const [invalidEmail, setInvalidEmail] = useState(false);
   const [shortPassword, setPasswordLength] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showModal, setModal] = useState(false);
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  const signupWithEmail = async (e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setModal(true);
     setInvalidEmail(false);
     setPasswordLength(false);
 
     let email = emailRef.current.value;
     let password = passwordRef.current.value;
-
-    if (
-      !email.includes("@") ||
-      !email.includes(".") ||
-      email.endsWith(".") ||
-      email.endsWith("@")
-    ) {
-      setInvalidEmail(true);
-      return;
-    }
-
-    if (password.length < 6) {
-      setPasswordLength(true);
-      return;
-    }
-
     try {
-      setModal(true);
-      setLoading(true);
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      setLoading(false);
-      let resObj = Object.create(response);
-      if (resObj.user.email === email.trim()) {
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      const resObj = await Object.create(response);
+      if (resObj._tokenResponse.registered === true) {
         errorTitle = "Success";
-        errorMessage = `Signup successfully with => ${email}`;
+        errorMessage = "Login successfully";
       }
-    } catch (err) {
       setLoading(false);
-      const errObj = Object.create(err);
-      errorMessage = errObj.code;
-      errorTitle = errObj.name;
+    } catch (err) {
+      const errorObj = Object.create(err);
+      console.log(errorObj);
+      if (errorObj.name === "FirebaseError") {
+        errorTitle = errorObj.name;
+        errorMessage = errorObj.code;
+      }
+      setLoading(false);
     }
-
-    emailRef.current.value = "";
-    passwordRef.current.value = "";
   };
 
-  const signupWithGoogle = () => {
-    signInWithPopup(auth, provider).then((response) => console.log(response));
-  };
   const hideModal = () => setModal(false);
+
   return (
     <>
       {showModal && (
@@ -87,11 +58,12 @@ const Signup = () => {
           message={errorMessage}
         />
       )}
+
       <div className="card-lg">
         <div className={"container"}>
-          <h1>Sign up</h1>
-          <p>Please signup to access all services</p>
-          <form onSubmit={signupWithEmail} className={"signup_form"}>
+          <h1>Login</h1>
+          <p>Please login to use services</p>
+          <form onSubmit={loginUser} className={"signup_form"}>
             <div className={"input_control"}>
               <input
                 type="email"
@@ -118,31 +90,21 @@ const Signup = () => {
             </div>
             <div>
               <p className={"login_link_line"}>
-                Already a member?
+                Not have an account?
                 <span>
-                  <Link to="/login" className={"link"}>
+                  <Link to="/signup" className={"link"}>
                     {" "}
-                    login
+                    signup
                   </Link>
                 </span>
               </p>
             </div>
-            <Button className={"btn"} title={"Submit"} />
+            <Button className={"btn"} title={"Login"} />
           </form>
-          <div className={"hr"}>
-            <div className={"line"}></div>
-            <div className={"or"}>OR</div>
-            <div className={"line"}></div>
-          </div>
-          <Button
-            onclick={signupWithGoogle}
-            className={"btn google_btn"}
-            title={"Google"}
-          />
         </div>
       </div>
     </>
   );
 };
 
-export default Signup;
+export default Login;
