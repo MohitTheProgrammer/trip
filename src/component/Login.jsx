@@ -1,9 +1,17 @@
-import Button from "./Button";
-import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+//Firebase imports
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "../firbase/config";
+
+//Components import
+import Button from "./Button";
 import Modal from "./Modal";
+
+//React imports
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+//Css import
+import "../styles/signup.css"
 
 const auth = getAuth(app);
 let errorMessage = "";
@@ -26,6 +34,23 @@ const Login = () => {
 
     let email = emailRef.current.value;
     let password = passwordRef.current.value;
+
+    if (
+      !email.includes("@") ||
+      !email.includes(".") ||
+      email.endsWith(".") ||
+      email.endsWith("@")
+    ) {
+      setInvalidEmail(true);
+      return;
+    }
+
+    if (password.length < 6) {
+      setPasswordLength(true);
+      return;
+    }
+
+    
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
       const resObj = await Object.create(response);
@@ -33,6 +58,7 @@ const Login = () => {
         errorTitle = "Success";
         errorMessage = "Login successfully";
       }
+      console.log(response.user)
       setLoading(false);
     } catch (err) {
       const errorObj = Object.create(err);

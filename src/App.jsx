@@ -4,19 +4,26 @@ import NavigationBar from "./component/NavigationBar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import AuthContext from "./firbase/auth-context";
 
 function App() {
   return (
     <>
-      <NavigationBar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="signup" element={<SignupPage />} />
-          <Route path="login" element={<LoginPage />} />
-
-        </Routes>
-      </BrowserRouter>
+      <AuthContext.Provider
+        value={{
+          isLogin: false,
+          user: {},
+        }}
+      >
+        <NavigationBar />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="signup" element={<SignupPage />} />
+            <Route path="login" element={<LoginPage />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthContext.Provider>
     </>
   );
 }

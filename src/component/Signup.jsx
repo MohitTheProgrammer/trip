@@ -1,15 +1,22 @@
+// Firebase imports
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
-import { useRef, useState } from "react";
 import { app } from "../firbase/config";
+
+//Css import
 import "../styles/signup.css";
+//React imports
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+//Component imports
 import Button from "./Button";
 import Modal from "./Modal";
-import { Link } from "react-router-dom";
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -19,6 +26,7 @@ let errorTitle = "";
 const Signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const nameRef = useRef();
   const [invalidEmail, setInvalidEmail] = useState(false);
   const [shortPassword, setPasswordLength] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -29,8 +37,9 @@ const Signup = () => {
     setInvalidEmail(false);
     setPasswordLength(false);
 
-    let email = emailRef.current.value;
-    let password = passwordRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const displayName = nameRef.current.value;
 
     if (
       !email.includes("@") ||
@@ -50,19 +59,17 @@ const Signup = () => {
     try {
       setModal(true);
       setLoading(true);
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(res.user, { displayName });
       setLoading(false);
-      let resObj = Object.create(response);
+      let resObj = Object.create(res);
       if (resObj.user.email === email.trim()) {
         errorTitle = "Success";
         errorMessage = `Signup successfully with => ${email}`;
       }
     } catch (err) {
       setLoading(false);
+      console.log(err);
       const errObj = Object.create(err);
       errorMessage = errObj.code;
       errorTitle = errObj.name;
@@ -73,7 +80,7 @@ const Signup = () => {
   };
 
   const signupWithGoogle = () => {
-    signInWithPopup(auth, provider).then((response) => console.log(response));
+    signInWithPopup(auth, provider).then((res) => console.log(res));
   };
   const hideModal = () => setModal(false);
   return (
@@ -93,6 +100,13 @@ const Signup = () => {
           <p>Please signup to access all services</p>
           <form onSubmit={signupWithEmail} className={"signup_form"}>
             <div className={"input_control"}>
+              <input
+                type="text"
+                required
+                ref={nameRef}
+                placeholder="Name"
+                className={"signup_input"}
+              />
               <input
                 type="email"
                 required
