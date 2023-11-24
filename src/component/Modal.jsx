@@ -1,5 +1,10 @@
+//CSS imports
 import "../styles/modal.css";
+
+//Component import
 import Button from "./Button";
+
+//Image import
 import Loading from "../assets/images/loading.gif";
 
 const Modal = (props) => {

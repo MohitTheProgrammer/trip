@@ -41,14 +41,36 @@ nav {
   background-color: white;
 }
 .nav-user-profile {
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  display: grid;
-  place-items: center;
+  width: 120px;
+  height: 60px;
   color: white;
+  padding: 0px;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-around;
 }
 .nav-logo:hover {
   color: var(--btn-main);
   cursor: pointer;
+}
+.nav-user-profile:hover {
+  cursor: pointer;
+  color: var(--btn-main);
+}
+.user-profile-img {
+  height: 100%;
+  width: 50%;
+  border-radius: 50%;
+  border: 3px solid var(--btn-main);
+}
+.user-displayname {
+  text-transform: capitalize;
+}
+.user-displayname a {
+  margin-left: 5px;
+  text-decoration: none;
+  color: white;
 }

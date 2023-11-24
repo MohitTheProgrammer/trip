@@ -1,5 +1,5 @@
 //Firebase imports
-import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firbase/config";
 
 //Components import
@@ -8,10 +8,10 @@ import Modal from "./Modal";
 
 //React imports
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //Css import
-import "../styles/signup.css"
+import "../styles/signup.css";
 
 const auth = getAuth(app);
 let errorMessage = "";
@@ -24,6 +24,7 @@ const Login = () => {
   const [showModal, setModal] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
+  const navigate = useNavigate();
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -50,7 +51,6 @@ const Login = () => {
       return;
     }
 
-    
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
       const resObj = await Object.create(response);
@@ -58,8 +58,9 @@ const Login = () => {
         errorTitle = "Success";
         errorMessage = "Login successfully";
       }
-      console.log(response.user)
+      console.log(response.user);
       setLoading(false);
+      navigate("/")
     } catch (err) {
       const errorObj = Object.create(err);
       console.log(errorObj);
@@ -77,7 +78,7 @@ const Login = () => {
     <>
       {showModal && (
         <Modal
-          onClick={isLoading ? console.log() : hideModal}
+          onClick={isLoading ? () => {} : hideModal}
           loading={isLoading}
           errorClassName={errorTitle === "Success" ? "success" : "error"}
           title={errorTitle}

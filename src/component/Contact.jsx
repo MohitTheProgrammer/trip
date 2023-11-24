@@ -1,11 +1,19 @@
+//CSS import
 import "../styles/contact.css";
-import Button from "./Button";
-import { useRef, useContext, useState } from "react";
-import { db } from "../firbase/config";
-import { set, ref } from "firebase/database";
-import AuthContext from "../firbase/auth-context";
-import Modal from "../component/Modal";
 
+//Component import
+import Modal from "../component/Modal";
+import Button from "./Button";
+
+//React import
+import { useContext, useRef, useState } from "react";
+
+//Firebase import
+import { ref, set } from "firebase/database";
+
+//App config imports
+import AuthContext from "../firbase/auth-context";
+import { db } from "../firbase/config";
 
 const Contact = () => {
   const ctx = useContext(AuthContext);

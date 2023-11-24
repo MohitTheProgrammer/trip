@@ -6,13 +6,16 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
+
+//App config import
 import { app } from "../firbase/config";
 
 //Css import
 import "../styles/signup.css";
+
 //React imports
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //Component imports
 import Button from "./Button";
@@ -31,6 +34,7 @@ const Signup = () => {
   const [shortPassword, setPasswordLength] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showModal, setModal] = useState(false);
+  const navigate = useNavigate();
 
   const signupWithEmail = async (e) => {
     e.preventDefault();
@@ -67,6 +71,7 @@ const Signup = () => {
         errorTitle = "Success";
         errorMessage = `Signup successfully with => ${email}`;
       }
+      navigate("/login");
     } catch (err) {
       setLoading(false);
       console.log(err);
@@ -80,7 +85,7 @@ const Signup = () => {
   };
 
   const signupWithGoogle = () => {
-    signInWithPopup(auth, provider).then((res) => console.log(res));
+    signInWithPopup(auth, provider).then(() => navigate("/"));
   };
   const hideModal = () => setModal(false);
   return (
