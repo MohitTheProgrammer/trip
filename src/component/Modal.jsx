@@ -9,7 +9,7 @@ import Loading from "../assets/images/loading.gif";
 
 const Modal = (props) => {
   return (
-    <div className="backdrop" onClick={props.onClick}>
+    <div className="backdrop" onClick={props.loading ? ()=>{} : props.onClick}>
       <div className="modal">
         <div className="modal-container">{props.children}</div>
         {props.loading ? (
@@ -22,8 +22,8 @@ const Modal = (props) => {
         )}
         {!props.loading && (
           <Button
-            onclick={props.onClick}
-            className={"btn modal-close"}
+            onclick={props.loading ? ()=>{} : props.onClick}
+            className={"modal-close"}
             title={"Close"}
           />
         )}

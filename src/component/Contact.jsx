@@ -15,6 +15,11 @@ import { ref, set } from "firebase/database";
 import AuthContext from "../firbase/auth-context";
 import { db } from "../firbase/config";
 
+//Image import
+import  Location  from "../assets/images/location.png";
+import  Message  from "../assets/images/message.png";
+import  Phone  from "../assets/images/phone.png";
+
 const Contact = () => {
   const ctx = useContext(AuthContext);
   const [isError, setError] = useState(false);
@@ -109,23 +114,22 @@ const Contact = () => {
           <div className="contact-info-container">
             <h3 className="contact-info-heading">Contact Info</h3>
             <p className="contact-para">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatem omnis, placeat exercitationem consequuntur fuga, minima
-              eos doloribus voluptas repellendus magnam nemo sed quibusdam neque
-              harum veritatis quas. Maxime molestiae non officiis, quisquam
-              officia iure.
+              Experience unparalleled customer support 24/7. Our dedicated team
+              ensures swift problem-solving, putting your needs first.
+              Reliability is not just a promise; it's our commitment to your
+              satisfaction.
             </p>
             <div className="contact-medium">
-              <img src="" alt="" className="contact-icon" />
-              <span className="contact-detail">helo</span>
+              <img src={Location} alt="Location" className="contact-icon" />
+              <span className="contact-detail">1234k Avenue, 4th block-3, Cali, Valle del Cauca, Colombia</span>
             </div>
             <div className="contact-medium">
-              <img src="" alt="" className="contact-icon" />
-              <span className="contact-detail">helo</span>
+              <img src={Message} alt="Message" className="contact-icon" />
+              <span className="contact-detail">tripto@pro.col.trav</span>
             </div>
             <div className="contact-medium">
-              <img src="" alt="" className="contact-icon" />
-              <span className="contact-detail">helo</span>
+              <img src={Phone} alt="Phone" className="contact-icon" />
+              <span className="contact-detail">+57 123-875-800</span>
             </div>
           </div>
         </div>

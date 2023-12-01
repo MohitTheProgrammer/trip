@@ -12,11 +12,10 @@
   align-items: center;
   justify-content: center;
 }
-.contact-page-section {
+.contact-page-section, .about-page-section {
   width: 100%;
-  text-align: center;
   height: auto;
-  font-family: "Ubuntu", sans-serif;
+  font-family: var(--contact-font);
 }
 .user-page-section{
   width: 100%;

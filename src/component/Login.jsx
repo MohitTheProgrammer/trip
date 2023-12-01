@@ -78,7 +78,7 @@ const Login = () => {
     <>
       {showModal && (
         <Modal
-          onClick={isLoading ? () => {} : hideModal}
+          onClick={hideModal}
           loading={isLoading}
           errorClassName={errorTitle === "Success" ? "success" : "error"}
           title={errorTitle}

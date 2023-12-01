@@ -1,16 +1,17 @@
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import NavigationBar from "./component/NavigationBar";
 import AuthContext from "./firbase/auth-context";
 import { app } from "./firbase/config";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import EditProfile from "./pages/EditProfilePage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import UserPage from "./pages/UserPage";
-import ContactPage from "./pages/ContactPage";
 
 const auth = getAuth(app);
 
@@ -50,6 +51,7 @@ function App() {
             <Route path="user/:uid" element={<UserPage />} />
             <Route path="edit-user-profile/:uid" element={<EditProfile />} />
             <Route path="contact" element={<ContactPage />} />
+            <Route path="about" element={<AboutPage />} />
           </Routes>
         </BrowserRouter>
       </AuthContext.Provider>

@@ -24,6 +24,7 @@ import { app, storage } from "../firbase/config";
 
 const auth = getAuth(app);
 let errorMessage = "";
+let imgErrorMessage = "";
 let image = null;
 
 const EditProfile = () => {
@@ -40,23 +41,25 @@ const EditProfile = () => {
   const fileChnageHnadler = (e) => {
     image = e.target.files[0];
     setError(false);
-    console.log(image);
     if (!image.type.includes("image")) {
-      image = null;
       setError(true);
-      errorMessage = "File must be an image";
+      imgErrorMessage = "File must be an image";
       return;
     }
     if (image.size > 1240000) {
-      image = null;
       setError(true);
-      errorMessage = "File can not be larger than 1mb";
+      imgErrorMessage = "File can not be larger than 1mb";
       return;
     }
   };
   const updateUserProfile = async (event) => {
     event.preventDefault();
     setModal(true);
+    if (!image && !name && !email && !phoneNumber) {
+      setError(true);
+      errorMessage = "Atleast update one field of your profile!";
+      return;
+    }
     console.log(auth.currentUser);
     if (auth.currentUser === null) {
       setError(true);
@@ -67,6 +70,18 @@ const EditProfile = () => {
       let photoURL = null;
       try {
         if (image) {
+          if (image && image.size > 1240000) {
+            setLoading(false);
+            setError(true);
+            errorMessage = "File is too large!";
+            return;
+          }
+          if (!image.type.includes("image")) {
+            setLoading(false);
+            setError(true);
+            errorMessage = "File must be an image";
+            return;
+          }
           const imagePath = ref(
             storage,
             `userProfile/${ctx.user.uid}/${image.name}`
@@ -89,7 +104,6 @@ const EditProfile = () => {
           setRedirect(`/user/${ctx.user.uid}`);
         });
       } catch (err) {
-        console.log(err);
         setError(true);
         setLoading(false);
         errorMessage = "somthing went wrong";
@@ -100,7 +114,7 @@ const EditProfile = () => {
   const hideModal = () => {
     setModal(false);
     navigate(redirect);
-    location.reload()
+    location.reload();
   };
 
   const onCancel = () => {
@@ -124,7 +138,7 @@ const EditProfile = () => {
           <div>
             <label htmlFor="name">Enter new name</label>
             <p className="user-warning-update-profile">
-              *if dont wanna edit your name leave this field blank
+              *if dont wanna edit your name leave than this field blank
             </p>
             <input
               type="text"
@@ -138,7 +152,7 @@ const EditProfile = () => {
           <div>
             <label htmlFor="email">Email</label>
             <p className="user-warning-update-profile">
-              *if dont wanna edit your email leave this field blank
+              *if dont wanna edit your email than leave this field blank
             </p>
             <input
               type="email"
@@ -152,7 +166,7 @@ const EditProfile = () => {
           <div>
             <label htmlFor="phone-number">Phone Number</label>
             <p className="user-warning-update-profile">
-              *if dont wanna edit your phone number leave this field blank
+              *if dont wanna edit your phone number than leave this field blank
             </p>
             <input
               id="phone-number"
@@ -167,6 +181,9 @@ const EditProfile = () => {
             <label htmlFor="image" style={{ margin: "5px 0" }}>
               Change Profile Image
             </label>
+            <p className="user-warning-update-profile">
+              *if dont wanna update your photo than leave this field blank
+            </p>
             <input
               type="file"
               id={"image"}
@@ -175,7 +192,7 @@ const EditProfile = () => {
             />
             {isError && (
               <p style={{ color: "red", transform: "translateY(-50%)" }}>
-                {errorMessage}
+                {imgErrorMessage}
               </p>
             )}
           </div>

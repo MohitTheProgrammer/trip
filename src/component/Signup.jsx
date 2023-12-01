@@ -92,7 +92,7 @@ const Signup = () => {
     <>
       {showModal && (
         <Modal
-          onClick={isLoading ? console.log() : hideModal}
+          onClick={hideModal}
           loading={isLoading}
           errorClassName={errorTitle === "Success" ? "success" : "error"}
           title={errorTitle}

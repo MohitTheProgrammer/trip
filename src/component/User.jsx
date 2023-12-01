@@ -15,7 +15,6 @@ import "../styles/user.css";
 
 const User = () => {
   const ctx = useContext(AuthContext);
-  console.log(ctx.user);
   return (
     <div className="user-info-card">
       <div className="profile-page-img">
