@@ -149,7 +149,7 @@ const EditProfile = () => {
               className={"edit-profile-input"}
             />
           </div>
-          <div>
+          {/* <div>
             <label htmlFor="email">Email</label>
             <p className="user-warning-update-profile">
               *if dont wanna edit your email than leave this field blank
@@ -176,7 +176,7 @@ const EditProfile = () => {
               onChange={(e) => setPhoneNumber(e.target.value)}
               className={"edit-profile-input"}
             />
-          </div>
+          </div> */}
           <div>
             <label htmlFor="image" style={{ margin: "5px 0" }}>
               Change Profile Image

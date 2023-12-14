@@ -31,12 +31,12 @@ const User = () => {
         <p className="display-user-cred">
           <span className="user-cred-indi">Email: </span> {ctx.user.email}
         </p>
-        <p className="display-user-cred">
+        {/* <p className="display-user-cred">
           <span className="user-cred-indi">Phone Number: </span>
           {ctx.user.phoneNumber
             ? ctx.user.phoneNumber
             : "add phone number"}{" "}
-        </p>
+        </p> */}
       </div>
       {ctx.user.email ? (
         <>

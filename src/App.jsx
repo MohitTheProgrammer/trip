@@ -13,7 +13,6 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import UserPage from "./pages/UserPage";
 import ServicePage from "./pages/ServicePage";
-import AdminPage from "./pages/AdminPage";
 import OneVehicleCard from "./component/OneVehicleCard";
 
 const auth = getAuth(app);
@@ -56,7 +55,6 @@ function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="service" element={<ServicePage />} />
-            <Route path="admin" element={<AdminPage />} />
             <Route path="vehicle/:type/:id" element={<OneVehicleCard />} />
           </Routes>
         </BrowserRouter>
