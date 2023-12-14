@@ -41,8 +41,8 @@ nav {
   background-color: white;
 }
 .nav-user-profile {
-  width: 120px;
-  height: 60px;
+  width: auto;
+  height: 65px;
   color: white;
   padding: 0px;
   text-decoration: none;
@@ -62,11 +62,13 @@ nav {
 }
 .user-profile-img {
   height: 100%;
-  width: 50%;
+  width: 65px;
   border-radius: 50%;
   border: 3px solid var(--btn-main);
 }
 .user-displayname {
+  width: 90px;
+  height: auto;
   text-transform: capitalize;
 }
 .user-displayname a {
