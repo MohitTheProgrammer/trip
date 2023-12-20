@@ -1,0 +1,31 @@
+.ticket {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: capitalize;
+  transition: all .3s ease;
+}
+.link-container {
+  transition: all .3s ease;
+  padding: 5px 10px;
+  display: flex;
+  margin: 10px 0;
+  border: 1px solid rgb(178, 173, 173);
+  border-radius: 3px;
+  font-family: var(--contact-font);
+}
+.expired {
+  color: grey;
+}
+.active {
+  color: var(--btn-main);
+}
+.link-container:hover{
+  .ticket{
+    color: white;
+  }
+  .expired{
+    color: white;
+  }
+  background-color: var(--btn-main);
+}
