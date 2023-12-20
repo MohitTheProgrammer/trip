@@ -69,12 +69,10 @@ const Signup = () => {
       let resObj = Object.create(res);
       if (resObj.user.email === email.trim()) {
         errorTitle = "Success";
-        errorMessage = `Signup successfully with => ${email}`;
+        errorMessage = `Signup successfully with ${email}`;
       }
-      navigate("/login");
     } catch (err) {
       setLoading(false);
-      console.log(err);
       const errObj = Object.create(err);
       errorMessage = errObj.code;
       errorTitle = errObj.name;
@@ -87,7 +85,11 @@ const Signup = () => {
   const signupWithGoogle = () => {
     signInWithPopup(auth, provider).then(() => navigate("/"));
   };
-  const hideModal = () => setModal(false);
+  const hideModal = () => {
+    setModal(false);
+    navigate("/")
+    location.reload()
+  };
   return (
     <>
       {showModal && (

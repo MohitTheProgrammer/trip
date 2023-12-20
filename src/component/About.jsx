@@ -22,7 +22,7 @@ const About = () => {
             adventure begin as you navigate through a world of possibilities.
             Happy travels!
           </p>
-          <button className={"about-btn"}>READ MORE</button>
+          <button className={"about-btn"} disabled>READ MORE</button>
         </div>
         <div className="first-about-portion-img">
           <img
@@ -46,7 +46,7 @@ const About = () => {
             about places; it was a profound exploration of self. Here's to a
             year of wanderlust, growth, and unforgettable moments.
           </p>
-          <button className={"about-btn"}>WATCH NOW</button>
+          <button className={"about-btn"} disabled>WATCH NOW</button>
         </div>
       </div>
       <div className="second-about-partion">

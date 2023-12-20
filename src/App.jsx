@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import NavigationBar from "./component/NavigationBar";
+import OneVehicleCard from "./component/OneVehicleCard";
 import AuthContext from "./firbase/auth-context";
 import { app } from "./firbase/config";
 import AboutPage from "./pages/AboutPage";
@@ -10,16 +11,16 @@ import ContactPage from "./pages/ContactPage";
 import EditProfile from "./pages/EditProfilePage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import ServicePage from "./pages/ServicePage";
 import SignupPage from "./pages/SignupPage";
 import UserPage from "./pages/UserPage";
-import ServicePage from "./pages/ServicePage";
-import OneVehicleCard from "./component/OneVehicleCard";
+import TicketPage from "./pages/TicketPage";
+import ShowTicketPage from "./pages/ShowTicketPage";
 
 const auth = getAuth(app);
 
 function App() {
   const [user, setUser] = useState({});
-
   useEffect(() => {
     onAuthStateChanged(auth, (getUser) => {
       if (getUser) {
@@ -32,7 +33,7 @@ function App() {
 
   const logOut = async () => {
     await signOut(auth);
-    location.reload();
+    location.reload()
   };
 
   return (
@@ -56,6 +57,8 @@ function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="service" element={<ServicePage />} />
             <Route path="vehicle/:type/:id" element={<OneVehicleCard />} />
+            <Route path="tickets/:uid" element={<TicketPage />} />
+            <Route path="ticket/:uid/:ticketId" element={<ShowTicketPage />} />
           </Routes>
         </BrowserRouter>
       </AuthContext.Provider>

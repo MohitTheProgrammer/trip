@@ -58,7 +58,6 @@ const Login = () => {
         errorTitle = "Success";
         errorMessage = "Login successfully";
       }
-      console.log(response.user);
       setLoading(false);
       navigate("/")
     } catch (err) {

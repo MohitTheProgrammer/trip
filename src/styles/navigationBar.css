@@ -8,7 +8,11 @@ nav {
   align-items: center;
   padding: 0 50px;
 }
-
+.head-link{
+  text-decoration: none;
+  color: white;
+  transition: color .3s ease;
+}
 .nav-logo {
   font-size: 28px;
   color: white;
@@ -52,7 +56,7 @@ nav {
   align-items: center;
   justify-content: space-around;
 }
-.nav-logo:hover {
+.head-link:hover {
   color: var(--btn-main);
   cursor: pointer;
 }

@@ -60,7 +60,6 @@ const EditProfile = () => {
       errorMessage = "Atleast update one field of your profile!";
       return;
     }
-    console.log(auth.currentUser);
     if (auth.currentUser === null) {
       setError(true);
       errorMessage = "You are not logged in";

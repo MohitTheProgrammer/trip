@@ -43,6 +43,9 @@ const User = () => {
           <a className="edit-btn" href={`/edit-user-profile/${ctx.user.uid}`}>
             Edit
           </a>
+          <a className="edit-btn" href={`/tickets/${ctx.user.uid}`}>
+            Tickets
+          </a>
           <Button
             className={"btn logout-btn"}
             title={"Logout"}

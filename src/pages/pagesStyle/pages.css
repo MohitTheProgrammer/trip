@@ -12,21 +12,90 @@
   align-items: center;
   justify-content: center;
 }
-.contact-page-section, .about-page-section {
+.contact-page-section,
+.about-page-section {
   width: 100%;
   height: auto;
   font-family: var(--contact-font);
 }
-.user-page-section{
+.user-page-section {
   width: 100%;
   height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.service-page-section{
+.service-page-section {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.ticket-page-section {
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ticket-section-heading {
+  color: var(--btn-main);
+  font-size: 32px;
+}
+.ticket-section-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 20px 30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.ticket-section-secondary-heading {
+  color: var(--btn-main);
+}
+
+/* showticket-section */
+.showticket-section {
+  display: flex;
+  font-family: var(--contact-font);
+  justify-content: center;
+}
+.showticket-container {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.showticket-container p{
+  color: salmon;
+  margin: 10px 0;
+}
+.showticket-info{
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
+  padding: 5px 0;
+}
+.showticket-heading{
+  color: var(--btn-main);
+  font-weight: 900;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.print-btn{
+  color: var(--btn-main);
+    background-color: white;
+    border: 1px solid var(--btn-main);
+    font-size: 19px;
+    padding: 5px;
+    transition: all .3s ease;
+}
+.print-btn:hover{
+  color: white;
+  background-color: var(--btn-main);
 }

@@ -96,7 +96,7 @@ const Service = () => {
             )
         )}
       </div>
-      <h1 className="service-main-heading">Luxury Sedans</h1>
+      {/* <h1 className="service-main-heading">Luxury Sedans</h1>
       <div className="service-card-section">
         {car.map(
           (elm) =>
@@ -113,8 +113,8 @@ const Service = () => {
               />
             )
         )}
-      </div>
-      <h1 className="service-main-heading">Luxury SUV</h1>
+      </div> */}
+      {/* <h1 className="service-main-heading">Luxury SUV</h1>
       <div className="service-card-section">
         {car.map(
           (elm) =>
@@ -131,7 +131,7 @@ const Service = () => {
               />
             )
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

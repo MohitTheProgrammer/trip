@@ -17,7 +17,9 @@ const NavBar = () => {
     <header>
       <nav>
         <div className="nav-logo">
-          <h1>Trip to</h1>
+          <a href="/" className="head-link">
+            <h1>Trip to</h1>
+          </a>
         </div>
         <ul className="nav-list">
           <li className="nav-items">
@@ -36,14 +38,12 @@ const NavBar = () => {
         <div className="nav-user-profile">
           {ctx.user.displayName ? (
             <a href={`/user/${ctx.user.uid}`} className="nav-user-profile">
-            <img
+              <img
                 className="user-profile-img"
                 src={ctx.user.photoURL ? ctx.user.photoURL : userProfile}
                 alt="img"
               />
-              <span className="user-displayname">
-                {ctx.user.displayName}
-              </span>
+              <span className="user-displayname">{ctx.user.displayName}</span>
             </a>
           ) : (
             <a href="/login" className="nav-user-profile">
@@ -52,9 +52,7 @@ const NavBar = () => {
                 src={defaultProfile}
                 alt="img"
               />
-              <span className="user-displayname">
-                login
-              </span>
+              <span className="user-displayname">login</span>
             </a>
           )}
         </div>
