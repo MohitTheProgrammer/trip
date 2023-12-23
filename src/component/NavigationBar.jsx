@@ -7,6 +7,7 @@ import userProfile from "../assets/images/userProfile.png";
 
 //App config import
 import AuthContext from "../firbase/auth-context";
+import { Link } from "react-router-dom";
 
 //CSS import
 import "../styles/navigationBar.css";
@@ -17,43 +18,43 @@ const NavBar = () => {
     <header>
       <nav>
         <div className="nav-logo">
-          <a href="/" className="head-link">
+          <Link to="/" className="head-link">
             <h1>Trip to</h1>
-          </a>
+          </Link>
         </div>
         <ul className="nav-list">
           <li className="nav-items">
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li className="nav-items">
-            <a href="/about">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li className="nav-items">
-            <a href="/service">Services</a>
+            <Link to="/service">Services</Link>
           </li>
           <li className="nav-items">
-            <a href="/contact">Contact</a>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
         <div className="nav-user-profile">
           {ctx.user.displayName ? (
-            <a href={`/user/${ctx.user.uid}`} className="nav-user-profile">
+            <Link to={`/user/${ctx.user.uid}`} className="nav-user-profile">
               <img
                 className="user-profile-img"
                 src={ctx.user.photoURL ? ctx.user.photoURL : userProfile}
                 alt="img"
               />
               <span className="user-displayname">{ctx.user.displayName}</span>
-            </a>
+            </Link>
           ) : (
-            <a href="/login" className="nav-user-profile">
+            <Link to="/login" className="nav-user-profile">
               <img
                 className="user-profile-img"
                 src={defaultProfile}
                 alt="img"
               />
               <span className="user-displayname">login</span>
-            </a>
+            </Link>
           )}
         </div>
       </nav>
