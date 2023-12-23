@@ -112,8 +112,6 @@ const EditProfile = () => {
 
   const hideModal = () => {
     setModal(false);
-    setRedirect(`/trip/user/${ctx.user.uid}`);
-    navigate(redirect);
   };
 
   const onCancel = () => {
