@@ -59,7 +59,7 @@ const Login = () => {
         errorMessage = "Login successfully";
       }
       setLoading(false);
-      navigate("/")
+      navigate("/trip/")
     } catch (err) {
       const errorObj = Object.create(err);
       console.log(errorObj);
