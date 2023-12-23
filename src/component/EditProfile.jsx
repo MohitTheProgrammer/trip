@@ -114,7 +114,6 @@ const EditProfile = () => {
     setModal(false);
     setRedirect(`/trip/user/${ctx.user.uid}`);
     navigate(redirect);
-    location.reload();
   };
 
   const onCancel = () => {
