@@ -46,7 +46,7 @@ function App() {
         }}
       >
         <NavigationBar />
-        <BrowserRouter>
+        {/* <BrowserRouter> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="signup" element={<SignupPage />} />
@@ -60,7 +60,7 @@ function App() {
             <Route path="tickets/:uid" element={<TicketPage />} />
             <Route path="ticket/:uid/:ticketId" element={<ShowTicketPage />} />
           </Routes>
-        </BrowserRouter>
+        {/* </BrowserRouter> */}
       </AuthContext.Provider>
     </>
   );
