@@ -112,12 +112,13 @@ const EditProfile = () => {
 
   const hideModal = () => {
     setModal(false);
+    setRedirect(`/trip/user/${ctx.user.uid}`);
     navigate(redirect);
     location.reload();
   };
 
   const onCancel = () => {
-    navigate(auth.currentUser === null ? "/trip/login" : `/trip/user/${ctx.user.uid}`);
+    navigate(!auth.currentUser ? "/trip/login" : `/trip/user/${ctx.user.uid}`);
   };
 
   return (
