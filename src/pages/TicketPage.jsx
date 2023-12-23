@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./pagesStyle/pages.css";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Ticket from "../component/Ticket";
 const TicketPage = () => {
   const [activetickets, setATickets] = useState([]);
@@ -71,6 +72,6 @@ const TicketPage = () => {
 
 export default TicketPage;
 
-/*<a href="">
+/*<Link to="">
             <h2>ticket</h2>
-          </a> */
+          </Link>  */

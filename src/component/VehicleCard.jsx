@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import "../styles/vehicleCard.css";
 
 const VehicleCard = (props) => {
   return (
-    <a href={`/vehicle/${props.type}/${props.id}`} className="service-card">
+    <Link href={`/vehicle/${props.type}/${props.id}`} className="service-card">
       <div className="sevice-vehicle-info">
         <img src={props.image} alt="Setting" className="service-vehicle-img" />
         <h3 className="service-vehicle-heading">{props.name}</h3>
@@ -11,7 +12,7 @@ const VehicleCard = (props) => {
           <h4>Top Speed: {props.topSpeed}</h4>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

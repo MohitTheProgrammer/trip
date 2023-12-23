@@ -3,6 +3,7 @@ import "../styles/greet.css";
 
 //App config import
 import AuthContext from "../firbase/auth-context";
+import { Link } from "react-router-dom";
 
 //React import
 import { useContext } from "react";
@@ -19,7 +20,7 @@ const Greet = () => {
           "Welcome to our Traveler's Haven! 🌍✈️ Explore the India with us and embark on unforgettable journeys."
         ) : (
           <span>
-            <a href="login">Login for better user experience</a>
+            <Link to="login">Login for better user experience</Link> 
           </span>
         )}
       </p>

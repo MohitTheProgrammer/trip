@@ -5,6 +5,7 @@ import "../styles/about.css";
 import Car from "../assets/images/car.png";
 import Setting from "../assets/images/setting.png";
 import AboutProfile from "../assets/images/aboutProfile.png";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -50,7 +51,7 @@ const About = () => {
         </div>
       </div>
       <div className="second-about-partion">
-        <a href="/service" className="about-service">
+        <Link to="/service" className="about-service">
           <img src={Car} alt="Car" className="about-sevice-img" />
           <h3 className="about-service-heading">SERVICE 1</h3>
           <p className="about-service-para">
@@ -58,8 +59,8 @@ const About = () => {
             comfort, reliability, and style as our professional drivers take you
             on seamless journeys, ensuring your adventures start stress-free.
           </p>
-        </a>
-        <a href="/service" className="about-service">
+        </Link> 
+        <Link to="/service" className="about-service">
           <img src={AboutProfile} alt="Profile" className="about-sevice-img" />
           <h3 className="about-service-heading">SERVICE 2</h3>
           <p className="about-service-para">
@@ -67,8 +68,8 @@ const About = () => {
             apart. With 24/7 assistance, friendly experts, and prompt solutions,
             we ensure a seamless and satisfying experience for every customer.
           </p>
-        </a>
-        <a href="/service" className="about-service">
+        </Link> 
+        <Link to="/service" className="about-service">
           <img src={Setting} alt="Setting" className="about-sevice-img" />
           <h3 className="about-service-heading">SERVICE 3</h3>
           <p className="about-service-para">
@@ -76,7 +77,7 @@ const About = () => {
             cutting-edge technology ensures reliability, sustainability, and
             optimal performance on the road.
           </p>
-        </a>
+        </Link> 
       </div>
     </div>
   );

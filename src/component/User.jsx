@@ -12,6 +12,7 @@ import AuthContext from "../firbase/auth-context";
 
 //CSS import
 import "../styles/user.css";
+import { Link } from "react-router-dom";
 
 const User = () => {
   const ctx = useContext(AuthContext);
@@ -40,12 +41,12 @@ const User = () => {
       </div>
       {ctx.user.email ? (
         <>
-          <a className="edit-btn" href={`/edit-user-profile/${ctx.user.uid}`}>
+          <Link className="edit-btn" href={`/edit-user-profile/${ctx.user.uid}`}>
             Edit
-          </a>
-          <a className="edit-btn" href={`/tickets/${ctx.user.uid}`}>
+          </Link>
+          <Link className="edit-btn" href={`/tickets/${ctx.user.uid}`}>
             Tickets
-          </a>
+          </Link>
           <Button
             className={"btn logout-btn"}
             title={"Logout"}
@@ -53,9 +54,9 @@ const User = () => {
           />
         </>
       ) : (
-        <a className="edit-btn" href={`/login`}>
+        <Link className="edit-btn" href={`/login`}>
           Login
-        </a>
+        </Link>
       )}
     </div>
   );
