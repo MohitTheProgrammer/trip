@@ -51,7 +51,7 @@ const About = () => {
         </div>
       </div>
       <div className="second-about-partion">
-        <Link to="/service" className="about-service">
+        <Link to="/trip/service" className="about-service">
           <img src={Car} alt="Car" className="about-sevice-img" />
           <h3 className="about-service-heading">SERVICE 1</h3>
           <p className="about-service-para">
@@ -60,7 +60,7 @@ const About = () => {
             on seamless journeys, ensuring your adventures start stress-free.
           </p>
         </Link> 
-        <Link to="/service" className="about-service">
+        <Link to="/trip/service" className="about-service">
           <img src={AboutProfile} alt="Profile" className="about-sevice-img" />
           <h3 className="about-service-heading">SERVICE 2</h3>
           <p className="about-service-para">
@@ -69,7 +69,7 @@ const About = () => {
             we ensure a seamless and satisfying experience for every customer.
           </p>
         </Link> 
-        <Link to="/service" className="about-service">
+        <Link to="/trip/service" className="about-service">
           <img src={Setting} alt="Setting" className="about-sevice-img" />
           <h3 className="about-service-heading">SERVICE 3</h3>
           <p className="about-service-para">

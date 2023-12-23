@@ -63,7 +63,7 @@ const EditProfile = () => {
     if (auth.currentUser === null) {
       setError(true);
       errorMessage = "You are not logged in";
-      setRedirect("/login");
+      setRedirect("/trip/login");
     } else {
       setLoading(true);
       let photoURL = null;
@@ -100,7 +100,7 @@ const EditProfile = () => {
         }).then(() => {
           setLoading(false);
           errorMessage = "Profile updated successfully!";
-          setRedirect(`/user/${ctx.user.uid}`);
+          setRedirect(`/trip/user/${ctx.user.uid}`);
         });
       } catch (err) {
         setError(true);
@@ -117,7 +117,7 @@ const EditProfile = () => {
   };
 
   const onCancel = () => {
-    navigate(auth.currentUser === null ? "/login" : `/user/${ctx.user.uid}`);
+    navigate(auth.currentUser === null ? "/trip/login" : `/trip/user/${ctx.user.uid}`);
   };
 
   return (

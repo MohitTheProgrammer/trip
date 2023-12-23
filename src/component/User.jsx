@@ -41,10 +41,10 @@ const User = () => {
       </div>
       {ctx.user.email ? (
         <>
-          <Link className="edit-btn" href={`/edit-user-profile/${ctx.user.uid}`}>
+          <Link className="edit-btn" to={`/trip/edit-user-profile/${ctx.user.uid}`}>
             Edit
           </Link>
-          <Link className="edit-btn" href={`/tickets/${ctx.user.uid}`}>
+          <Link className="edit-btn" to={`/trip/tickets/${ctx.user.uid}`}>
             Tickets
           </Link>
           <Button
@@ -54,7 +54,7 @@ const User = () => {
           />
         </>
       ) : (
-        <Link className="edit-btn" href={`/login`}>
+        <Link className="edit-btn" to={`trip/login`}>
           Login
         </Link>
       )}

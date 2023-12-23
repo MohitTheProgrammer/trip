@@ -18,27 +18,27 @@ const NavBar = () => {
     <header>
       <nav>
         <div className="nav-logo">
-          <Link to="/" className="head-link">
+          <Link to="trip/" className="head-link">
             <h1>Trip to</h1>
           </Link>
         </div>
         <ul className="nav-list">
           <li className="nav-items">
-            <Link to="/">Home</Link>
+            <Link to="trip/">Home</Link>
           </li>
           <li className="nav-items">
-            <Link to="/about">About</Link>
+            <Link to="trip/about">About</Link>
           </li>
           <li className="nav-items">
-            <Link to="/service">Services</Link>
+            <Link to="trip/service">Services</Link>
           </li>
           <li className="nav-items">
-            <Link to="/contact">Contact</Link>
+            <Link to="trip/contact">Contact</Link>
           </li>
         </ul>
         <div className="nav-user-profile">
           {ctx.user.displayName ? (
-            <Link to={`/user/${ctx.user.uid}`} className="nav-user-profile">
+            <Link to={`trip/user/${ctx.user.uid}`} className="nav-user-profile">
               <img
                 className="user-profile-img"
                 src={ctx.user.photoURL ? ctx.user.photoURL : userProfile}
@@ -47,7 +47,7 @@ const NavBar = () => {
               <span className="user-displayname">{ctx.user.displayName}</span>
             </Link>
           ) : (
-            <Link to="/login" className="nav-user-profile">
+            <Link to="trip/login" className="nav-user-profile">
               <img
                 className="user-profile-img"
                 src={defaultProfile}

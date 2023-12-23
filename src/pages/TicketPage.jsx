@@ -41,7 +41,7 @@ const TicketPage = () => {
           {activetickets.length < 1 ? <h2 style={{color: "salmon"}}>Book Tickets at minimum price</h2> : ""}
           {activetickets.map((e, i) => (
             <Ticket
-              href={`/ticket/${param.uid}/${e.ticketId}`}
+              href={`/trip/ticket/${param.uid}/${e.ticketId}`}
               key={i}
               className={"ticket active"}
               destination={e.destination}
@@ -58,7 +58,7 @@ const TicketPage = () => {
           {expiredtickets.length < 1 ? <h2 style={{color: "salmon"}}>No Expired Ticket</h2> : ""}
           {expiredtickets.map((e, i) => (
             <Ticket
-              href={`/ticket/${param.uid}/${e.ticketId}`}
+              href={`/trip/ticket/${param.uid}/${e.ticketId}`}
               className={"ticket expired"}
               key={i}
               destination={e.destination}

@@ -1,6 +1,6 @@
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import NavigationBar from "./component/NavigationBar";
 import OneVehicleCard from "./component/OneVehicleCard";
@@ -20,6 +20,7 @@ import ShowTicketPage from "./pages/ShowTicketPage";
 const auth = getAuth(app);
 
 function App() {
+  const navigate = useNavigate()
   const [user, setUser] = useState({});
   useEffect(() => {
     onAuthStateChanged(auth, (getUser) => {
@@ -33,7 +34,9 @@ function App() {
 
   const logOut = async () => {
     await signOut(auth);
+    navigate("trip/")
     location.reload()
+    
   };
 
   return (
@@ -48,17 +51,17 @@ function App() {
         <NavigationBar />
         {/* <BrowserRouter> */}
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="signup" element={<SignupPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="user/:uid" element={<UserPage />} />
-            <Route path="edit-user-profile/:uid" element={<EditProfile />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="service" element={<ServicePage />} />
-            <Route path="vehicle/:type/:id" element={<OneVehicleCard />} />
-            <Route path="tickets/:uid" element={<TicketPage />} />
-            <Route path="ticket/:uid/:ticketId" element={<ShowTicketPage />} />
+            <Route path="trip/" element={<HomePage />} />
+            <Route path="trip/signup" element={<SignupPage />} />
+            <Route path="trip/login" element={<LoginPage />} />
+            <Route path="trip/user/:uid" element={<UserPage />} />
+            <Route path="trip/edit-user-profile/:uid" element={<EditProfile />} />
+            <Route path="trip/contact" element={<ContactPage />} />
+            <Route path="trip/about" element={<AboutPage />} />
+            <Route path="trip/service" element={<ServicePage />} />
+            <Route path="trip/vehicle/:type/:id" element={<OneVehicleCard />} />
+            <Route path="trip/tickets/:uid" element={<TicketPage />} />
+            <Route path="trip/ticket/:uid/:ticketId" element={<ShowTicketPage />} />
           </Routes>
         {/* </BrowserRouter> */}
       </AuthContext.Provider>
